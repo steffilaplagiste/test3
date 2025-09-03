@@ -27,7 +27,6 @@ export async function generateMetadata(props: {
   return generatePageMetadata({ page, slug: params.slug });
 }
 
-export const revalidate = 60; // secondes
 
 export default async function Page(props: {
   params: Promise<{ slug: string }>;
