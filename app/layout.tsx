@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -27,11 +27,24 @@ export const metadata: Metadata = {
   robots: !isProduction ? "noindex, nofollow" : "index, follow",
 };
 
-const fontSans = FontSans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+
+
+const fontSans = localFont({
+  src: [
+    {
+      path: "./../public/fonts/bax-v4-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "./../public/fonts/bax-v4-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
   variable: "--font-sans",
 });
+
 
 export default function RootLayout({
   children,
