@@ -1,36 +1,5 @@
-// app/layout.tsx
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
-
-const maPolice = localFont({
-  src: [
-    { path: "../public/fonts/MaPolice-Regular.woff2", weight: "400", style: "normal" },
-    { path: "../public/fonts/MaPolice-Italic.woff2",  weight: "400", style: "italic" },
-    { path: "../public/fonts/MaPolice-Bold.woff2",    weight: "700", style: "normal" },
-  ],
-  variable: "--font-ma-police",   // <- variable CSS
-  display: "swap",                // évite le flash
-});
-
-export const metadata: Metadata = {
-  title: "Ton site",
-  description: "…",
-};
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="fr" className={maPolice.variable}>
-      <body className="font-sans">{children}</body>
-    </html>
-  );
-}
-
-
-
-
-import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -58,11 +27,24 @@ export const metadata: Metadata = {
   robots: !isProduction ? "noindex, nofollow" : "index, follow",
 };
 
-const fontSans = FontSans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+
+
+const fontSans = localFont({
+  src: [
+    {
+      path: "./../public/fonts/bax-v4-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "./../public/fonts/bax-v4-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
   variable: "--font-sans",
 });
+
 
 export default function RootLayout({
   children,
