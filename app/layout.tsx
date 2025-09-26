@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -27,10 +27,12 @@ export const metadata: Metadata = {
   robots: !isProduction ? "noindex, nofollow" : "index, follow",
 };
 
-const fontSans = FontSans({
+
+const fontSans = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500", "700"], 
   variable: "--font-sans",
+  display: "swap",
 });
 
 export default function RootLayout({
