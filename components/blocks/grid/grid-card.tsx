@@ -25,19 +25,19 @@ export default function GridCard({
   return (
     <Link
       key={title}
-      className="flex w-full rounded-3xl ring-offset-background focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+      className="flex w-full rounded-3xl focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
       href={link?.href ?? "#"}
       target={link?.target ? "_blank" : undefined}
     >
-       <div
+      <div
         className={cn(
-          // On garde une bordure discrète mais SANS changement à l'hover
-          "flex w-full flex-col justify-between overflow-hidden transition ease-in-out border rounded-3xl p-4"
+          "flex w-full flex-col justify-between overflow-hidden rounded-3xl p-4",
+          "transition-transform duration-300 ease-in-out", // transition douce
+          "hover:scale-105" // scale léger au hover
         )}
       >
         <div>
           {image && image.asset?._id && (
-            // ---- IMAGE CARRÉE ----
             <div className="mb-4 relative w-full aspect-square rounded-2xl overflow-hidden">
               <Image
                 src={urlFor(image).url()}
@@ -54,7 +54,6 @@ export default function GridCard({
 
           <div className={cn(color === "primary" ? "text-background" : undefined)}>
             {title && (
-              // ---- TITRE CENTRÉ ----
               <div className="mb-4">
                 <h3 className="font-bold text-2xl text-center">{title}</h3>
               </div>
@@ -63,7 +62,6 @@ export default function GridCard({
           </div>
         </div>
 
-        {/* ---- BOUTON largeur du texte + centré ---- */}
         <Button
           className="mt-6 self-center w-auto"
           size="lg"
