@@ -31,11 +31,11 @@ export default function SplitCardsItem({
     <motion.div
       ref={ref}
       className={cn(
-    "group flex flex-col items-start rounded-3xl px-6 lg:px-8 py-6 lg:py-8",
+        "group flex flex-col items-start rounded-3xl px-6 lg:px-8 py-6 lg:py-8",
     "transition-colors duration-300 ease-in-out",
-    "bg-background text-foreground" 
-  )}
->
+    "bg-background text-foreground"
+      )}
+    >
       <div
         className={cn(
           "flex flex-col gap-4 transition-colors duration-1000 ease-in-out",
@@ -61,7 +61,13 @@ export default function SplitCardsItem({
             </div>
           )}
           {title && (
-            <div className="text-xl font-semibold leading-[1.1]">{title}</div>
+            <div  className={cn(
+      "my-2 font-semibold text-xl transition-colors duration-300 ease-in-out",
+      "text-foreground",
+      "group-hover:text-[var(--destructive)] group-hover:underline group-hover:underline-offset-4 group-hover:decoration-[var(--destructive)]",
+      isInView && "text-[var(--destructive)] underline underline-offset-4 decoration-[var(--destructive)]"
+    )}
+  >{title}</div>
           )}
         </div>
         {body && <PortableTextRenderer value={body} />}
