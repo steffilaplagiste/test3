@@ -49,14 +49,10 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-  enableSystem={false}
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+   <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} forcedTheme="light">
+  {children}
+</ThemeProvider>
+
         <Toaster position="top-center" richColors />
       </body>
     </html>
