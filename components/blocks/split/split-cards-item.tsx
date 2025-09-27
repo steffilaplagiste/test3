@@ -29,36 +29,31 @@ export default function SplitCardsItem({
   });
 
   return (
-    <motion.div
-      ref={ref}
-      className={cn(
-        "flex flex-col items-start border border-primary rounded-3xl px-6 lg:px-8 py-6 lg:py-8 transition-colors duration-1000 ease-in-out",
-        isInView ? "bg-foreground/85" : "bg-background",
-        color === "primary" ? "text-background" : undefined
-      )}
-    >
-      {tagLine && (
-        <div
-          className={cn(
-            "font-bold text-2xl lg:text-3xl transition-colors duration-1000 ease-in-out",
-            isInView ? "text-background" : "text-foreground",
-            color === "primary" ? "text-background" : undefined
-          )}
-        >
-          {tagLine}
-        </div>
-      )}
-      {title && (
-        <div
-          className={cn(
-            "my-2 font-semibold text-xl transition-colors duration-1000 ease-in-out",
-            isInView ? "text-background" : "text-foreground",
-            color === "primary" ? "text-background" : undefined
-          )}
-        >
-          {title}
-        </div>
-      )}
+ <motion.div
+  ref={ref}
+  className={cn(
+    "group flex flex-col items-start rounded-3xl px-6 lg:px-8 py-6 lg:py-8",
+    "transition-colors duration-300 ease-in-out",
+    "bg-background text-foreground" // ⬅️ plus de bg noir quand visible
+  )}
+>
+  {tagLine && (
+  <div className="font-bold text-2xl lg:text-3xl transition-colors duration-300 ease-in-out text-foreground">
+    {tagLine}
+  </div>
+)}
+    {title && (
+  <div
+    className={cn(
+      "my-2 font-semibold text-xl transition-colors duration-300 ease-in-out",
+      "text-foreground",
+      "group-hover:text-[var(--destructive)] group-hover:underline group-hover:underline-offset-4 group-hover:decoration-[var(--destructive)]",
+      isInView && "text-[var(--destructive)] underline underline-offset-4 decoration-[var(--destructive)]"
+    )}
+  >
+    {title}
+  </div>
+)}
       {body && (
         <div
           className={cn(
