@@ -17,7 +17,7 @@ export default function SplitCardsList({ color, list }: SplitCardsListProps) {
   const colorParent = stegaClean(color);
 
   return (
-     <div
+ <div
   className="
     flex flex-col justify-center gap-12
     [&_img]:max-w-[50px] [&_img]:max-h-[50px] [&_img]:w-auto [&_img]:h-auto
