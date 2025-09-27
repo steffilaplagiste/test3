@@ -38,7 +38,7 @@ export default function SplitCardsItem({
   )}
 >
   {tagLine && (
-  <div className="font-bold text-2xl lg:text-3xl transition-colors duration-300 ease-in-out text-foreground">
+  <div className="font-bold text-2xl lg:text-3xl transition-colors duration-1000 ease-in-out text-foreground">
     {tagLine}
   </div>
 )}
@@ -56,11 +56,7 @@ export default function SplitCardsItem({
 )}
       {body && (
         <div
-          className={cn(
-            "transition-colors duration-1000 ease-in-out",
-            isInView ? "text-background" : "text-foreground"
-          )}
-        >
+         className="transition-colors duration-300 ease-in-out text-foreground">
           <PortableTextRenderer value={body} />
         </div>
       )}
