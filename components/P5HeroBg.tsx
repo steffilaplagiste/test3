@@ -33,9 +33,9 @@ export default function P5HeroBg({ height }: Props) {
         const SYMPATHY = 0.25;
 
         // couleurs (RGB borné pour rester orange)
-        const R_MIN = 220, R_MAX = 255;
-        const G_MIN = 90,  G_MAX = 170;
-        const B_MIN = 0,   B_MAX = 60;
+const R_MIN = 232, R_MAX = 255; // 244 ± 12 (borné à 255)
+const G_MIN = 77,  G_MAX = 101; // 89  ± 12
+const B_MIN = 30,  B_MAX = 54;  // 42  ± 12
         let r = 240, g = 120, b = 20;
         let vr = 0, vg = 0, vb = 0;
 
