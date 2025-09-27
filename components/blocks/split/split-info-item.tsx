@@ -36,12 +36,8 @@ export default function SplitCardsItem({
     "bg-background text-foreground"
       )}
     >
-      <div
-        className={cn(
-          "flex flex-col gap-4 transition-colors duration-1000 ease-in-out",
-          isInView ? "text-background" : "text-foreground"
-        )}
-      >
+    <div className="flex flex-col gap-4 transition-colors duration-300 ease-in-out text-foreground">
+
         <div className="flex items-center gap-2">
           {image && image.asset?._id && (
             <div className="shrink-0 w-10 h-10 flex items-center justify-center">
