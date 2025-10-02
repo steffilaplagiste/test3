@@ -5,7 +5,7 @@ import Custom404 from "@/components/404";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Page not found",
+  title: "Ce n'est pas le bon chemin !",
 };
 
 export default function NotFoundPage() {
