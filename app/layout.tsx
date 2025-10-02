@@ -24,7 +24,10 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
-  robots: !isProduction ? "noindex, nofollow" : "index, follow",
+  robots: {
+  index: isProduction,
+  follow: isProduction,
+},
 };
 
 
