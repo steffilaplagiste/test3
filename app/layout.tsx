@@ -25,6 +25,12 @@ export const metadata: Metadata = {
     type: "website",
   },
   robots: !isProduction ? "noindex, nofollow" : "index, follow",
+  verification: {
+    google: "BZCaJNQ9Q_p8gWs9nWECyh0YZoLrKnJ2kTLa7gsIan8",
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 
