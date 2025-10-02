@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 
-// Fallback propre si la variable n'est pas définie
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://www.massimilianocangelosi.com";
 
@@ -14,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     template: "%s | Schema UI Starter",
-    default: "Massimiliano Cangelosi | Gestalt therapie a Paris",
+    default: "Sanity Next.js Website | Schema UI Starter",
   },
   openGraph: {
     images: [
@@ -27,7 +26,6 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     type: "website",
   },
-  // On force l'indexation : pas de condition d'env
   robots: {
     index: true,
     follow: true,
@@ -35,12 +33,11 @@ export const metadata: Metadata = {
       index: true,
       follow: true,
       noimageindex: false,
-      maxSnippet: -1,
-      maxImagePreview: "large",
-      maxVideoPreview: -1,
+      ["max-snippet"]: -1,
+      ["max-image-preview"]: "large",
+      ["max-video-preview"]: -1,
     },
   },
-  // Favicon via metadata (au lieu d'un <link> en dur)
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
@@ -71,7 +68,12 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} forcedTheme="light">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+          forcedTheme="light"
+        >
           {children}
         </ThemeProvider>
         <Toaster position="top-center" richColors />
