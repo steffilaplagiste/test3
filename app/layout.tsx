@@ -12,8 +12,8 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    template: "%s | Schema UI Starter",
-    default: "Sanity Next.js Website | Schema UI Starter",
+    template: "%s ",
+    default: "Massimiliano Cangelosi Gestalt",
   },
   openGraph: {
     images: [
