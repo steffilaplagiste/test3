@@ -25,21 +25,20 @@ export default function GridCard({
   return (
     <Link
       key={title}
-      className="flex w-full rounded-3xl ring-offset-background focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 group"
+      className="flex w-full rounded-3xl focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
       href={link?.href ?? "#"}
       target={link?.target ? "_blank" : undefined}
     >
       <div
         className={cn(
-          "flex w-full flex-col justify-between overflow-hidden transition ease-in-out border rounded-3xl p-4",
-          color === "primary"
-            ? "group-hover:border-primary-foreground/50"
-            : "group-hover:border-primary"
+          "flex w-full flex-col justify-between overflow-hidden rounded-3xl p-4",
+          "transition-transform duration-300 ease-in-out", // transition douce
+          "hover:scale-105" // scale léger au hover
         )}
       >
         <div>
           {image && image.asset?._id && (
-            <div className="mb-4 relative h-[15rem] sm:h-[20rem] md:h-[25rem] lg:h-[9.5rem] xl:h-[12rem] rounded-2xl overflow-hidden">
+            <div className="mb-4 relative w-full aspect-square rounded-2xl overflow-hidden">
               <Image
                 src={urlFor(image).url()}
                 alt={image.alt || ""}
@@ -52,24 +51,24 @@ export default function GridCard({
               />
             </div>
           )}
-          <div
-            className={cn(color === "primary" ? "text-background" : undefined)}
-          >
+
+          <div className={cn(color === "primary" ? "text-background" : undefined)}>
             {title && (
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="font-bold text-2xl">{title}</h3>
+              <div className="mb-4">
+                <h3 className="font-bold text-2xl text-center">{title}</h3>
               </div>
             )}
-            {excerpt && <p>{excerpt}</p>}
+            {excerpt && <p className="text-center">{excerpt}</p>}
           </div>
         </div>
+
         <Button
-          className="mt-6"
+          className="mt-6 self-center w-auto"
           size="lg"
           variant={stegaClean(link?.buttonVariant)}
           asChild
         >
-          <div>{link?.title ?? "Learn More"}</div>
+          <div className="px-6">{link?.title ?? "Learn More"}</div>
         </Button>
       </div>
     </Link>
